@@ -1,0 +1,10 @@
+.Header {
+    background-color: #355990;
+    border-top: 10px solid #1E3B68;
+    color: white;
+    width: auto;
+    padding: 2% 2% 2% 15%;
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    font-size: 2em;
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "name": "firstName",
+    "required": true
+  },
+  {
+    "name": "lastName",
+    "required": true
+  },
+  {
+    "name": "age",
+    "required": true
+  },
+  {
+    "name" : "city",
+    "required": true
+  },
+  {
+    "name" : "district",
+    "required" : true
+  },
+  {
+    "name" : "teamNumber",
+    "required" : true
+  },
+  {
+    "name" : "defectOfVision",
+    "required" : true
+  }
+]

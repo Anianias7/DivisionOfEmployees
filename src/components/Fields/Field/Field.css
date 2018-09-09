@@ -1,0 +1,17 @@
+.FieldStyle {
+    width: 60%;
+    position: relative;
+}
+
+.FieldStyle > * {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+@media only screen and (max-width: 480px) {
+    .FieldStyle {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+}

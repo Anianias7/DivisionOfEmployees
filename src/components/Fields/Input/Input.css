@@ -1,0 +1,15 @@
+.Input {
+    padding: 2%;
+    width: 100%;
+    border-radius: 1px;
+    border: 1px solid;
+}
+
+.StandardInputBorderColor {
+    border-color: #D8D8DA;
+}
+
+.Input::placeholder {
+    color: #DADADA;
+    font-size: 16px;
+}

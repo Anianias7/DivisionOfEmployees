@@ -1,0 +1,26 @@
+.Label {
+    color: #9FB2CD;
+    width: 15%;
+    vertical-align: middle;
+    font-size: 88%;
+}
+
+.LabelError {
+    color: #FFA3AF;
+}
+
+.TopLabel {
+    align-self: flex-start;
+    margin-top: 2%;
+}
+
+.FieldWithDescriptionLabel {
+    transform: translateY(-50%);
+}
+
+@media only screen and (max-width: 480px) {
+    .Label{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

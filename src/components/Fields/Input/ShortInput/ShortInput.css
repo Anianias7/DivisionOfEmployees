@@ -1,0 +1,22 @@
+.ShortInput {
+    width: 18%;
+    height: 40px;
+    padding: 2%;
+    border-radius: 1px;
+}
+
+.ShortInputBorderColor {
+    border: 1px solid #D8D8DA;
+}
+
+.ShortInput::placeholder {
+    color: #DADADA;
+    font-size: 16px;
+}
+
+@media only screen and (max-width: 480px) {
+    .ShortInput {
+        flex-direction: row;
+        width: 50%;
+    }
+}

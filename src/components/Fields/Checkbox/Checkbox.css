@@ -1,0 +1,83 @@
+[type="checkbox"]:checked,
+[type="checkbox"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+.CheckBoxLabel {
+    /*height: 50px;*/
+    /*width: 50px;*/
+    /*position: relative;*/
+    /*border: 1px solid #D8D8DA;*/
+}
+
+.CheckBoxLabel:before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 100%;
+    padding: 2%;
+    border: 1px solid #8CA2C2;
+    background: #fff;
+}
+
+.CheckBoxLabel:after {
+    content: "";
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    width: 5px;
+    height: 10px;
+    border: solid #9FB2CD;
+    border-width: 0 3px 3px 0;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+[type="checkbox"]:not(:checked) + .CheckBoxLabel:after {
+    opacity: 0;
+    transform: scale(0);
+}
+
+[type="checkbox"]:checked + .CheckBoxLabel:after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+@media only screen and (max-width: 480px) {
+    .CheckBoxLabel {
+        margin-top: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+/*.Checkbox {*/
+    /*height: 30px;*/
+    /*width: 30px;*/
+    /*position: relative;*/
+    /*border: 1px solid #D8D8DA;*/
+/*}*/
+
+/*.Checkbox:after {*/
+    /*content: '';*/
+    /*height: 0;*/
+    /*transition: height .1s ease-out;*/
+/*}*/
+
+/*.CheckedCheckbox:after {*/
+    /*content: "";*/
+    /*left: 50%;*/
+    /*top: 50%;*/
+    /*position: absolute;*/
+    /*width: 5px;*/
+    /*height: 10px;*/
+    /*border: solid #9FB2CD;*/
+    /*border-width: 0 3px 3px 0;*/
+    /*transform: translate(-50%, -50%) rotate(45deg);*/
+

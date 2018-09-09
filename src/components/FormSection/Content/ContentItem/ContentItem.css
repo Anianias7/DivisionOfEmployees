@@ -1,0 +1,22 @@
+.ContentItem {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    align-items: center;
+    vertical-align: middle;
+    min-height: 55px;
+}
+
+.ContentItem:last-child {
+    margin-bottom: 0;
+}
+
+@media only screen and (max-width: 480px) {
+    .ContentItem{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+

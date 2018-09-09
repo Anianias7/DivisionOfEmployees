@@ -1,0 +1,12 @@
+.Header {
+    background-color: inherit;
+    color: #436598;
+    box-sizing: border-box;
+    border-bottom: 1px solid #D8D8DA;
+    margin-bottom: 5%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    padding-bottom: 2%;
+
+}

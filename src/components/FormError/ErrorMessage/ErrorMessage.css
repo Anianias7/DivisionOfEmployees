@@ -1,0 +1,25 @@
+.ErrorMessage {
+    background-color: #FFA3AF;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    font-family: Roboto, sans-serif;
+    padding: 0.6% 0.8%;
+    margin-left: 9px;
+    min-width: 165px;
+    border-radius: 2px;
+    position: relative;
+}
+
+.ErrorMessage::before {
+    width: 0;
+    height: 0;
+    left: -11px;
+    top: 50%;
+    transform: translateY(-50%);
+    content: '';
+    position: absolute;
+    border: 6px solid transparent;
+    border-right-color: #FFA3AF;
+
+}

@@ -1,0 +1,8 @@
+.FormSection {
+    background-color: white;
+    width: 80%;
+    height: auto;
+    margin: 4% auto auto;
+    padding: 5%;
+    box-sizing: border-box;
+}

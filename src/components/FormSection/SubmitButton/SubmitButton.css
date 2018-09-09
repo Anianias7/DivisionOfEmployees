@@ -1,0 +1,12 @@
+.SubmitButton {
+    box-sizing: border-box;
+    width: 12%;
+    height: 50px;
+    margin: 40px auto;
+    display: block;
+    background-color: #FF8E1E;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 2px;
+}
