@@ -1,5 +1,5 @@
 import Constraint from './Constraint'
-import Employees from "./Employees";
+import Employee from "./Employees";
 import Vertex from "./Vertex";
 import Graph from "./Graph";
 import Backtrack from './Backtrack'
@@ -13,18 +13,20 @@ const NUMBER_OF_EMPLOYEES = employeesData.length;
 const constraint = new Constraint(checkConstraints);
 
 
-const listOfVariables = new Employees(employeesData).employeeVariablesList;
+const listOfVertices = Array.from({length: NUMBER_OF_EMPLOYEES}, (_, k) => k).map(i => new Vertex(i,
+    new Employee(employeesData).employee));
+//MUTUJE??????
+// console.log("PRZED", listOfVertices)
+// listOfVertices[1].variable.value = "cos";
+// console.log("PO", listOfVertices)
 
+const graph = new Graph(listOfVertices, constraint, Math.floor(NUMBER_OF_EMPLOYEES/TEAM_SIZE), TEAM_SIZE);
 
-const listOfGraphs = Array.from({length: Math.floor(NUMBER_OF_EMPLOYEES / TEAM_SIZE)}, (_, graphNum) =>
-    new Graph(listOfVariables.slice(graphNum * TEAM_SIZE, (graphNum + 1) * TEAM_SIZE)
-        .map((v, i) => new Vertex(i,v)), constraint)
-);
-
-console.log("grafy", listOfGraphs);
-const backtrack = new Backtrack(listOfGraphs);
+console.log("LISTA SĄSIEDZTWA", graph.vertexAdjacencyList(0));
+//
+const backtrack = new Backtrack(graph);
 const result = backtrack.backtracking(0);
-console.log(result.map(graph => graph.listOfVertices.map(vertex => vertex.variable.value)));
+console.log("WYNIK", result);
 
 export default result;
 

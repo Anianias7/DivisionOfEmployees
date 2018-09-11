@@ -1,6 +1,35 @@
 export default class Backtrack {
-    constructor(listOfGraphs) {
-        this.listOfGraphs = listOfGraphs;
+    constructor(graph) {
+        this.graph = graph;
+        this.level = 0;
+    }
+
+
+    backtracking = (vertexNum) => {
+        const graph = this.graph;
+        if (graph.isFulfilled() || vertexNum >= graph.listOfVertices.length) {
+                return graph;
+        } else {
+            this.level++;
+            console.log(vertexNum);
+            console.log("level: ", this.level)
+            const vertex = graph.listOfVertices[vertexNum];
+            const vertexesDomain = vertex.variable.domain;
+            for (let i = 0; i < vertexesDomain.length; i++) {
+                vertex.variable.value = vertexesDomain[i];
+                if (graph.check(vertex)) {
+                    console.log("spełnia BITCH")
+                    const result= this.backtracking(vertexNum + 1);
+                    this.level--;
+                    console.log("level: ", this.level);
+                    if(result) {
+                        return result;
+                    }
+                }
+                vertex.variable.value = null
+            }
+
+        }
     }
 
     // verticesBacktrack = (vertexNum, graph, _domains) => {
@@ -43,14 +72,14 @@ export default class Backtrack {
     //     }
     // };
 
-    backtracking = (graphNumber) => {
-        if (graphNumber >= this.listOfGraphs.length)
-            return [];
-        else {
-            const resultGraph = this.verticesBacktrack(0, this.listOfGraphs[graphNumber]);
-            if (resultGraph) {
-                return [resultGraph, ...this.backtracking(graphNumber + 1)];
-            }
-        }
-    };
+    // backtracking = (graphNumber) => {
+    //     if (graphNumber >= this.listOfGraphs.length)
+    //         return [];
+    //     else {
+    //         const resultGraph = this.verticesBacktrack(0, this.listOfGraphs[graphNumber]);
+    //         if (resultGraph) {
+    //             return [resultGraph, ...this.backtracking(graphNumber + 1)];
+    //         }
+    //     }
+    // };
 }

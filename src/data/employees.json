@@ -4,8 +4,8 @@
     "firstName": "Ania",
     "lastName": "Skrzeszewska",
     "age": "23",
-    "city": "Ozimek",
-    "district": "Patola",
+    "city": "Wrocław",
+    "district": "Stare Miasto",
     "teamNumber": "1",
     "defectOfVision": "false"
   },
@@ -27,7 +27,7 @@
     "city": "Wrocław",
     "district": "Wojnow",
     "teamNumber": "3",
-    "defectOfVision": "false"
+    "defectOfVision": "true"
   },
   {
     "id": "4",

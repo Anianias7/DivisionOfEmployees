@@ -1,7 +1,7 @@
 
 
 class Vertex {
-    constructor(vertexId,variable) {
+    constructor(vertexId, variable) {
         this.id = vertexId;
         this.variable = variable;
     }

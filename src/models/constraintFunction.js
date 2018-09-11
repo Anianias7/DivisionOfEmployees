@@ -4,10 +4,10 @@ const all = (...fns) => input => fns.every(fun => fun(input));
 
 //me and others are Variable =>
 const hasDifferentValuesOnProp = prop => ({ me, others }) => {
-    // console.log({me, others})
     return others.every(other => (!(other.variable.value) || me.variable.value[prop] !==
         other.variable.value[prop]));
-}
+};
+
 const hasDifferentAge = hasDifferentValuesOnProp('age');
 const isNotFromSameDistrictOfACity = hasDifferentValuesOnProp('cityWithDistrict');
 const isNotFromSameTeam = hasDifferentValuesOnProp('teamNumber');
