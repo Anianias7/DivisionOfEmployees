@@ -18,14 +18,13 @@ const TeamInfo = ({
         <th>Wada wzroku</th>
     </tr>;
 
-    return <div className={classes.TeamInfoWrapper}>
-        <table className={classes.TeamInfo}>
+    return <table className={classes.TeamInfo}>
             <tbody>
             {fieldsNames}
             {mapMembers}
             </tbody>
         </table>
-    </div>
+
 };
 
 export default TeamInfo;

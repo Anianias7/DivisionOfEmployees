@@ -1,5 +1,3 @@
-const capitalizeFirstLetter = (str) => str.charAt(0).toUpperCase() + str.slice(1);
-
 const chunkArray = (myArray, chunk_size) => {
     let results = [];
 
@@ -11,6 +9,5 @@ const chunkArray = (myArray, chunk_size) => {
 };
 
 export default {
-    capitalizeFirstLetter,
     chunkArray
 }

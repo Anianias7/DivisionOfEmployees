@@ -1,12 +1,14 @@
 import React, {Component} from 'react'
 
 import TeamCard from "../../components/Teams/TeamCard/TeamCard";
+import ImpossibleTeamsInfo from "../../components/Teams/ImpossibleTeamInfo/ImpossibleTeamsInfo";
+import Spinner from "../../components/UI/Spinner/Spinner";
+
 import backtrack from "../../models/EmployeesTeams"
+import TEAM_SIZE from '../../data/config'
+import utils from "../../utils";
 
 import classes from './HackathonTeams.css'
-import ImpossibleTeamsInfo from "../../components/Teams/ImpossibleTeamInfo/ImpossibleTeamsInfo";
-import utils from "../../utils";
-import Spinner from "../../components/UI/Spinner/Spinner";
 
 class HackathonTeams extends Component {
 
@@ -18,7 +20,7 @@ class HackathonTeams extends Component {
     componentDidMount() {
         setTimeout(() => {
             const result = backtrack();
-            const teams = result ? utils.chunkArray(result.listOfVertices.map(vertex => vertex.variable.value), 2) : undefined;
+            const teams = result ? utils.chunkArray(result.listOfVertices.map(vertex => vertex.variable.value), TEAM_SIZE) : undefined;
             this.setState({
                 loading: false,
                 teams

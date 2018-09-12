@@ -1,18 +1,8 @@
-.TeamInfoWrapper {
-    display: flex;
-    position: absolute;
-    background-color: #F7F7F7;
-    z-index: 20;
-    border: 1px solid #D8D8DA;
-    border-radius: 5px;
-    width: 450px;
-}
-
 .TeamInfo {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     font-size: 15px;
     border-collapse: collapse;
-    width: 100%;
+    width: 450px;
 }
 
 .TeamInfo td, .TeamInfo th {

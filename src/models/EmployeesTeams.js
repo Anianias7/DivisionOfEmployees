@@ -6,9 +6,11 @@ import Backtrack from './Backtrack'
 
 import employeesData from '../createEmployeesData'
 import checkConstraints from './constraintFunction'
+import TEAM_SIZE from '../data/config'
 
-const TEAM_SIZE = 2;
 const NUMBER_OF_EMPLOYEES = employeesData.length;
+
+console.log(TEAM_SIZE)
 
 const constraint = new Constraint(checkConstraints);
 

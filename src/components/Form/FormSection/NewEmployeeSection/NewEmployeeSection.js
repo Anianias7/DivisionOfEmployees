@@ -131,15 +131,22 @@ const NewEmployeeSection = ({
                         name='dzielnica'/>
                 </ContentItem>
                 <ContentItem>
-                    <Label name='teamNumber'>
+                    <Label name='teamNumber'
+                           required>
                         Numer zespołu
                     </Label>
                     <Field>
                         <Select options={TEAMS_IDs}
+                                error={getErrors(values.teamNumber)}
+                                required
+                                placeholder="Numer zespołu"
                                 name='teamNumber'
                                 value={values.teamNumber.value}
                                 onChange={getInput}/>
                     </Field>
+                    <ErrorMessage
+                        error={getErrors(values.teamNumber)}
+                        name='numer zespołu'/>
                 </ContentItem>
                 <ContentItem>
                     <Label name='defectOfVision'>

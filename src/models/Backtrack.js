@@ -3,7 +3,7 @@ export default class Backtrack {
         this.graph = graph;
     }
 
-    baseCase = (vertexNum) => this.graph.isFulfilled() || vertexNum >= this.graph.listOfVertices.length
+    baseCase = (vertexNum) => this.graph.isFulfilled() || vertexNum >= this.graph.listOfVertices.length;
 
     backtracking = (vertexNum) => {
         const graph = this.graph;
@@ -26,8 +26,7 @@ export default class Backtrack {
                 vertex.variable.value = null
             }
         }
-    }
-    ;
+    };
 
     filterVertexDomain = (vertex) => vertex.variable.domain.filter(val => {
         const temp = vertex.variable.value;
@@ -37,9 +36,15 @@ export default class Backtrack {
         return result;
     });
 
-    saveDomains = (vertexNum) => this.graph.listOfVertices.slice(vertexNum + 1).map(vertex => [...vertex.variable.domain]);
+    saveDomains = (vertexNum) => this.graph.listOfVertices
+        .slice(vertexNum + 1)
+        .map(vertex => [...vertex.variable.domain]);
 
-    reduceDomains = (vertexNum) => this.graph.listOfVertices.slice(vertexNum + 1).forEach(v => v.variable.domain = this.filterVertexDomain(v));
+    reduceDomains = (vertexNum) => this.graph.listOfVertices
+        .slice(vertexNum + 1)
+        .forEach(v => v.variable.domain = this.filterVertexDomain(v));
 
-    restoreDomains = (domains, vertexNum) => this.graph.listOfVertices.slice(vertexNum + 1).forEach((vertex, i) => vertex.variable.domain = domains[i]);
+    restoreDomains = (domains, vertexNum) => this.graph.listOfVertices
+        .slice(vertexNum + 1)
+        .forEach((vertex, i) => vertex.variable.domain = domains[i]);
 }
