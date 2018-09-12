@@ -1,6 +1,7 @@
 import React from 'react'
+
 import classes from './Input.css'
-import style from '../../FormError/FieldError.css'
+import style from '../../Form/FormError/FieldError.css'
 
 const Input = ({
                    type,

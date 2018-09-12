@@ -1,0 +1,25 @@
+.TeamCard {
+    border: 1px solid #D8D8DA;
+    border-radius: 5px;
+    padding: 30px;
+    margin-top: 60px;
+    position: relative;
+    width: 450px;
+}
+
+.TeamCardAndInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.TeamNumber {
+    color: #FF8E1E;
+    font-weight: bold;
+}
+
+.EmployeesSection {
+    display: flex;
+    padding: 0;
+    list-style: none;
+    justify-content: space-evenly;
+}

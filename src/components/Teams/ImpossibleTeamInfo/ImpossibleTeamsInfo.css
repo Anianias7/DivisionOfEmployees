@@ -1,0 +1,13 @@
+.ImpossibleTeamsInfo {
+    width: 70%;
+    margin: 150px auto;
+    border: 1px solid #D8D8DA;
+    padding: 20px;
+    text-align: center;
+
+}
+
+.Message {
+    color: #FF8E1E;
+    font-weight: bold;
+}

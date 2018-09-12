@@ -1,6 +1,6 @@
 import React from 'react'
-import classes from './Select.css'
 
+import classes from './Select.css'
 
 const selectOptionsList = (options) => (
     options.map(({id}) => <option value={id}

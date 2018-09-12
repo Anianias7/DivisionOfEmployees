@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 
 import classes from './Checkbox.css'
 
@@ -6,48 +6,20 @@ const Checkbox = ({
                       id,
                       name,
                       labelText,
-                      checked,
+                      value,
                       onChange
                   }) => {
     return (
-        <Fragment>
+        <label className={classes.container}>
             <input
                 id={id}
                 type='checkbox'
                 name={name}
-                value={id}
+                value={value}
                 onChange={(event) => onChange({event})}
             />
-            <label htmlFor={id} className={classes.CheckBoxLabel}>
-
-            </label>
-        </Fragment>);
+            <span className={classes.checkmark}></span>
+        </label>);
 };
-
-
-// class Checkbox extends Component {
-//
-//     state = {
-//         checked: false
-//     };
-//
-//     handleOnClick = () => {
-//         this.setState({
-//             checked: !this.state.checked
-//         })
-//     };
-//
-//     render() {
-//
-//         const checkedStyle = this.state.checked ? classes.CheckedCheckbox : null;
-//         return (
-//             <div onClick={this.handleOnClick}
-//             className={[classes.Checkbox, checkedStyle].join(" ")}>
-//             </div>
-//
-//         );
-//     }
-//     ;
-// }
 
 export default Checkbox;

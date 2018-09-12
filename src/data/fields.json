@@ -25,6 +25,7 @@
   },
   {
     "name" : "defectOfVision",
-    "required" : true
+    "required" : false,
+    "initialValue" : false
   }
 ]

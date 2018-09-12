@@ -1,0 +1,36 @@
+.TeamInfoWrapper {
+    display: flex;
+    position: absolute;
+    background-color: #F7F7F7;
+    z-index: 20;
+    border: 1px solid #D8D8DA;
+    border-radius: 5px;
+    width: 450px;
+}
+
+.TeamInfo {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.TeamInfo td, .TeamInfo th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    height: 60px;
+}
+
+.TeamInfo tr:nth-child(even){background-color: #f2f2f2;}
+
+.TeamInfo tr:hover {background-color: #ddd;}
+
+.TeamInfo th {
+    padding-top: 5px 0;
+    text-align: left;
+    background-color: #FF8E1E;
+    color: white;
+    height: 60px;
+
+}
+

@@ -1,0 +1,10 @@
+.NavigationButton {
+    height: 70px;
+    width: 270px;
+}
+
+.NavigationButton__Link {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}

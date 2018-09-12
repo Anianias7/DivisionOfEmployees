@@ -1,6 +1,7 @@
 import React from 'react'
+
 import classes from './ShortInput.css'
-import style from '../../../FormError/FieldError.css'
+import style from '../../../Form/FormError/FieldError.css'
 
 const ShortInput = ({
                         type,

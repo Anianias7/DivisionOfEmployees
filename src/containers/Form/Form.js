@@ -1,16 +1,18 @@
 import React, {Component} from 'react'
-import NewEmployeeSection from "../../components/FormSection/NewEmployeeSection/NewEmployeeSection";
-import SubmitButton from "../../components/FormSection/SubmitButton/SubmitButton";
-import ValidatorService from '../../validators.service'
-// import utils from '../../utils'
+import {withRouter} from "react-router-dom";
 
+import NewEmployeeSection from "../../components/Form/FormSection/NewEmployeeSection/NewEmployeeSection";
+import Button from "../../components/UI/Button/Button";
+
+import ValidatorService from '../../validators.service'
+import employeesList from '../../createEmployeesData'
 
 const createInitialState = (fields) => {
-    return fields.reduce((acc, {name, required}) => {
+    return fields.reduce((acc, {name, required, initialValue}) => {
         return {
             ...acc,
             [name]: {
-                value: '',
+                value: initialValue !== undefined ? initialValue : '',
                 touched: false,
                 valid: !required,
                 errors: []
@@ -62,6 +64,19 @@ class Form extends Component {
         })
     };
 
+    handleCheckBox = ({
+                          event: {target: {name, checked}}
+                      }
+    ) => {
+        console.log(checked)
+
+        this.handleChangeValue({
+            name,
+            value: checked,
+            valid: true
+        })
+    };
+
     handleInput = ({
                        event: {target: {value, name}},
                        required,
@@ -82,7 +97,7 @@ class Form extends Component {
                              name,
                              value,
                              valid,
-                            errors,
+                             errors,
                          }) => {
         this.setState(
             {
@@ -117,17 +132,32 @@ class Form extends Component {
         })
     };
 
+    createDataFormatAfterSubmit = () => {
+        const state = this.state;
+        return Object.keys(state).reduce((obj, key) => ({
+            ...obj,
+            [key]: state[key].value
+        }), {});
+    };
+
     handleSubmit = (event) => {
         event.preventDefault();
         const state = this.state;
 
         if (this.isFormValid(state)) {
-            // console.log(this.createDataFormatAfterSubmit());
-            this.props.validForm()
+            const newEmployee = {
+                ...this.createDataFormatAfterSubmit(),
+                id: (employeesList.length + 1).toString()
+            };
+            employeesList.push(newEmployee);
+            console.log(employeesList)
+            this.props.history.push('/');
         }
+
         else {
-           console.log("Something went wrong!")
+            console.log("Something went wrong!");
         }
+
         this.changeTouchedValueAfterSubmit();
     };
 
@@ -137,14 +167,16 @@ class Form extends Component {
                 <NewEmployeeSection
                     numberOfTeams={this.props.numberOfTeams}
                     getInput={this.handleInput}
+                    getCheckbox={this.handleCheckBox}
                     getNumberInput={this.handleNumberInput}
                     values={this.state}
                     getErrors={this.checkedIfError}
                 />
-                <SubmitButton/>
+                <Button text="DODAJ PRACOWNIKA"
+                        type='submit'/>
             </form>
         );
     }
 }
 
-export default Form;
+export default withRouter(Form);
