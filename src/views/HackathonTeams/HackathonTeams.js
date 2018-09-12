@@ -28,20 +28,21 @@ class HackathonTeams extends Component {
         }, 30);
     }
 
-    mapTeamsToTeamCard = () => this.state.teams ? this.state.teams.map((team, id) =>
+    mapTeamsToTeamCard = () => this.state.teams.map((team, id) =>
         <TeamCard key={id}
                   teamNumber={id}
                   teamMembers={team}
-        />) : null;
+        />);
+
+    teamsResult = () => (
+        this.state.teams ? <ul className={classes.HackathonTeam}>
+            {this.mapTeamsToTeamCard()}
+        </ul> : <ImpossibleTeamsInfo/>
+    );
+
 
     render() {
-        console.log(this.state.teams)
-        return (
-            this.state.loading ? <Spinner/> : (
-                this.state.teams ? <ul className={classes.HackathonTeam}>
-                    {this.mapTeamsToTeamCard()}
-                </ul> : <ImpossibleTeamsInfo/>)
-        )
+        return this.state.loading ? <Spinner/> : this.teamsResult();
     }
 }
 

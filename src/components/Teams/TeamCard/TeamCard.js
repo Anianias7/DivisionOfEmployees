@@ -12,8 +12,8 @@ class TeamCard extends Component {
         showDetailedInfo: false
     });
 
-    mapTeamMembers = this.props.teamMembers.map(member => <li key={member.id}>
-        <MemberCard simple member={member}/>
+    mapTeamMembers = () => this.props.teamMembers.map(member => <li key={member.id}>
+        <MemberCard member={member}/>
     </li>);
 
     showTeamInfo = () => {
@@ -30,7 +30,7 @@ class TeamCard extends Component {
                     TEAM {this.props.teamNumber + 1}
                 </header>
                 <ul className={classes.EmployeesSection}>
-                    {this.mapTeamMembers}
+                    {this.mapTeamMembers()}
                 </ul>
             </div>
             {this.state.showDetailedInfo ? <div><TeamInfo members={this.props.teamMembers}/></div> : null}

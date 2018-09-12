@@ -1,14 +1,13 @@
-import React, {Fragment} from 'react'
+import React from 'react'
+
 import classes from './Layout.css'
 
 const Layout = ({
                     children
                 }) => (
-    <Fragment>
-        <div className={classes.Layout}>
-            {children}
-        </div>
-    </Fragment>
+    <div className={classes.Layout}>
+        {children}
+    </div>
 );
 
 export default Layout;

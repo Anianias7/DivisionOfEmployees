@@ -8,6 +8,7 @@ the following criteria:
 * People of the same age can not be together
 * People living in the same district of their city can not be together
 * People with visual impairment can not be together
+If there is odd number of employees it is possible that one person will be alone in team.
 
 ## Method used to solve the problem
 The Forwardcheckig algorithm was used to solve the problem identified as

@@ -13,7 +13,7 @@ class App extends Component {
         return (
             <Router>
                 <Layout>
-                    <Header/>
+                    <Header text="KorpeX Hackaton!"/>
                     <Route exact path='/' component={StartPage}/>
                     <Route path='/form' component={FormApp}/>
                     <Route path='/teams' component={HackathonTeams}/>

@@ -1,4 +1,4 @@
-export default class Backtrack {
+class Backtrack {
     constructor(graph) {
         this.graph = graph;
     }
@@ -29,11 +29,11 @@ export default class Backtrack {
     };
 
     filterVertexDomain = (vertex) => vertex.variable.domain.filter(val => {
-        const temp = vertex.variable.value;
+        const valueBeforeCheck = vertex.variable.value;
         vertex.variable.value = val;
-        const result = this.graph.check(vertex);
-        vertex.variable.value = temp;
-        return result;
+        const isSatisfiedConstraints = this.graph.check(vertex);
+        vertex.variable.value = valueBeforeCheck;
+        return isSatisfiedConstraints;
     });
 
     saveDomains = (vertexNum) => this.graph.listOfVertices
@@ -48,3 +48,5 @@ export default class Backtrack {
         .slice(vertexNum + 1)
         .forEach((vertex, i) => vertex.variable.domain = domains[i]);
 }
+
+export default Backtrack;

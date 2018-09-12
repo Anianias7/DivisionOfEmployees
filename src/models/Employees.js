@@ -1,18 +1,20 @@
 import Variable from './Variable';
 
-class Employee {
+class Employees {
 
     constructor(employeesData) {
         this.employeesData = employeesData;
-        this.employee = this.createEmployee();
+        this.employeesVariable = this.initVariableWithEmployeeDomain();
     }
 
-    createEmployee = () =>
-            new Variable(null, this.employeesData.map(employee => ({
-                ...employee,
-                cityWithDistrict: `${employee.city} ${employee.district}`
-            })));
+    addCityWithDistrictToEmployee = employee => ({
+        ...employee,
+        cityWithDistrict: `${employee.city} ${employee.district}`
+    });
+
+    initVariableWithEmployeeDomain = () =>
+            new Variable(null, this.employeesData.map(this.addCityWithDistrictToEmployee));
 }
 
-export default Employee;
+export default Employees;
 

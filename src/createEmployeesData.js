@@ -17,6 +17,6 @@ const createEmployees = (numberOfEmployees) => {
     return employees;
 };
 
-const employees = createEmployees(4);
+const employees = createEmployees(5);
 
 export default employees;
