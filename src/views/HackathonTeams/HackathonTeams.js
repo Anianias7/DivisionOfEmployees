@@ -10,23 +10,21 @@ import config from '../../data/config'
 
 import classes from './HackathonTeams.css'
 
-
 class HackathonTeams extends Component {
 
     state = ({
         teams: null,
         loading: true,
+        numberOfEmployees: 4,
     });
 
     componentDidMount() {
         setTimeout(() => {
             const result = backtrack();
-            console.log("RESULT ", result)
             const teams = result ?
                 utils.chunkArray(result.listOfVertices.map(vertex => vertex.variable.value), config.TEAM_SIZE) :
                 undefined;
-            console.log(teams)
-            
+
             this.setState({
                 loading: false,
                 teams
@@ -48,7 +46,7 @@ class HackathonTeams extends Component {
 
     render() {
         return this.state.loading ?
-            <Spinner /> :
+            <Spinner/> :
             this.teamsResult()
     }
 }

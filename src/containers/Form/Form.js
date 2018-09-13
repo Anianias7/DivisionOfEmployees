@@ -68,8 +68,6 @@ class Form extends Component {
                           event: {target: {name, checked}}
                       }
     ) => {
-        console.log(checked)
-
         this.handleChangeValue({
             name,
             value: checked,
@@ -150,7 +148,6 @@ class Form extends Component {
                 id: (employeesList.length + 1).toString()
             };
             employeesList.push(newEmployee);
-            console.log(employeesList)
             this.props.history.push('/');
         }
 

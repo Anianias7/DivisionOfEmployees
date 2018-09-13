@@ -11,7 +11,6 @@ import config from '../data/config'
 const NUMBER_OF_EMPLOYEES = employeesData.length;
 
 const constraint = new Constraint(checkConstraints);
-console.log("DATA", employeesData);
 
 const listOfVertices = Array.from({length: NUMBER_OF_EMPLOYEES}, (_, k) => k).map(i => new Vertex(i,
     new Employees(employeesData).employeesVariable));
