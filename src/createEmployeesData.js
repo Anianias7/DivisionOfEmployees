@@ -1,4 +1,5 @@
 import faker from 'faker'
+import config from './data/config'
 
 const createEmployees = (numberOfEmployees) => {
     let employees = [];
@@ -17,6 +18,4 @@ const createEmployees = (numberOfEmployees) => {
     return employees;
 };
 
-const employees = createEmployees(5);
-
-export default employees;
+export default createEmployees(config.NUMBER_OF_EMPLOYEES);

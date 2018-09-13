@@ -5,6 +5,8 @@ class Graph {
         this.numOfColumns = numOfColumns;
     }
 
+
+
     vertexesRowNum = (vertexNum) => {
         return Math.floor(this.listOfVertices[vertexNum].id / this.numOfColumns)
     };

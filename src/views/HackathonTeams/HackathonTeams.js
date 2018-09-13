@@ -4,23 +4,29 @@ import TeamCard from "../../components/Teams/TeamCard/TeamCard";
 import ImpossibleTeamsInfo from "../../components/Teams/ImpossibleTeamInfo/ImpossibleTeamsInfo";
 import Spinner from "../../components/UI/Spinner/Spinner";
 
-import backtrack from "../../models/EmployeesTeams"
-import TEAM_SIZE from '../../data/config'
-import utils from "../../utils";
+import backtrack from '../../models/EmployeesTeams'
+import utils from '../../utils'
+import config from '../../data/config'
 
 import classes from './HackathonTeams.css'
+
 
 class HackathonTeams extends Component {
 
     state = ({
         teams: null,
-        loading: true
+        loading: true,
     });
 
     componentDidMount() {
         setTimeout(() => {
             const result = backtrack();
-            const teams = result ? utils.chunkArray(result.listOfVertices.map(vertex => vertex.variable.value), TEAM_SIZE) : undefined;
+            console.log("RESULT ", result)
+            const teams = result ?
+                utils.chunkArray(result.listOfVertices.map(vertex => vertex.variable.value), config.TEAM_SIZE) :
+                undefined;
+            console.log(teams)
+            
             this.setState({
                 loading: false,
                 teams
@@ -40,9 +46,10 @@ class HackathonTeams extends Component {
         </ul> : <ImpossibleTeamsInfo/>
     );
 
-
     render() {
-        return this.state.loading ? <Spinner/> : this.teamsResult();
+        return this.state.loading ?
+            <Spinner /> :
+            this.teamsResult()
     }
 }
 

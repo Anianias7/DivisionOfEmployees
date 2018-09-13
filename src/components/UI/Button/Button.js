@@ -4,10 +4,12 @@ import classes from './Button.css'
 
 const Button = ({
                     text,
-                    type
+                    type,
+                    onClick
                 }) => {
     const classType = type === 'submit' ? classes.SubmitButton : classes.OptionButton;
-    return <button className={[classes.Button, classType].join(' ')}>
+    return <button className={[classes.Button, classType].join(' ')}
+                   onClick={onClick}>
         {text}
     </button>
 };
