@@ -27,6 +27,11 @@ To make class names and animation names scoped
 locally by default throughout the whole React application
 [CSS Modules](https://github.com/css-modules/css-modules) 
 was used.
+
+##Changing Employees Number
+Employees data is generated using Faker.js. 
+To change number of generated employees go to /src/data/config.js.
+
 ## Installation and Usage
 ### Node modules
 First step to make the application to work is to install node modules.  
