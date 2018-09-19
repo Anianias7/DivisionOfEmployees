@@ -9,14 +9,15 @@ import HackathonTeams from "./views/HackathonTeams/HackathonTeams";
 
 
 class App extends Component {
+
     render() {
         return (
             <Router>
                 <Layout>
                     <Header text="KorpeX Hackaton!"/>
                     <Route exact path='/' component={StartPage}/>
-                    <Route path='/form' component={FormApp}/>
-                    <Route path='/teams' component={HackathonTeams}/>
+                    <Route path='/form' render={() => <FormApp addEmployee={this.addEmployee}/>}/>
+                    <Route path='/teams' render={() => <HackathonTeams/>}/>
                 </Layout>
             </Router>
 

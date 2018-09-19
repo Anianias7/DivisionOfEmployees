@@ -1,26 +1,28 @@
 import React, {Component} from 'react'
+import { connect } from 'react-redux'
 
 import TeamCard from "../../components/Teams/TeamCard/TeamCard";
 import ImpossibleTeamsInfo from "../../components/Teams/ImpossibleTeamInfo/ImpossibleTeamsInfo";
 import Spinner from "../../components/UI/Spinner/Spinner";
 
-import backtrack from '../../models/EmployeesTeams'
 import utils from '../../utils'
 import config from '../../data/config'
 
 import classes from './HackathonTeams.css'
+import EmployeesTeams from "../../models/EmployeesTeams";
 
 class HackathonTeams extends Component {
 
     state = ({
-        teams: null,
         loading: true,
-        numberOfEmployees: 4,
+        numberOfRandomEmployees: config.NUMBER_OF_EMPLOYEES,
+        teams: null
     });
 
     componentDidMount() {
         setTimeout(() => {
-            const result = backtrack();
+            console.log(JSON.stringify(this.props.employees, undefined, 2))
+            const result = new EmployeesTeams(this.props.employees).createEmployeesGraph();
             const teams = result ?
                 utils.chunkArray(result.listOfVertices.map(vertex => vertex.variable.value), config.TEAM_SIZE) :
                 undefined;
@@ -50,5 +52,10 @@ class HackathonTeams extends Component {
             this.teamsResult()
     }
 }
+ const mapStateToProps = state => {
+    return {
+        employees: state.employees
+    }
+ };
 
-export default HackathonTeams;
+export default connect(mapStateToProps)(HackathonTeams);

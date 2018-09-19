@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
-import {withRouter} from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import { connect } from 'react-redux';
 
 import NewEmployeeSection from "../../components/Form/FormSection/NewEmployeeSection/NewEmployeeSection";
 import Button from "../../components/UI/Button/Button";
 
 import ValidatorService from '../../validators.service'
-import employeesList from '../../createEmployeesData'
+import * as actionTypes from '../../store/actions'
 
 const createInitialState = (fields) => {
     return fields.reduce((acc, {name, required, initialValue}) => {
@@ -141,13 +142,12 @@ class Form extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         const state = this.state;
-
         if (this.isFormValid(state)) {
             const newEmployee = {
                 ...this.createDataFormatAfterSubmit(),
-                id: (employeesList.length + 1).toString()
+                id: (this.props.employees.length).toString()
             };
-            employeesList.push(newEmployee);
+            this.props.onEmployeeAdded(newEmployee);
             this.props.history.push('/');
         }
 
@@ -176,4 +176,19 @@ class Form extends Component {
     }
 }
 
-export default withRouter(Form);
+const mapStateToProps = state => {
+    return {
+        employees: state.employees
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onEmployeeAdded: (employee) => dispatch({
+            type: actionTypes.ADD_EMPLOYEE,
+            employee: employee
+        })
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Form));
