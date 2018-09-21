@@ -5,5 +5,3 @@ export default {
     TEAM_SIZE,
     NUMBER_OF_EMPLOYEES
 }
-
-

@@ -15,10 +15,10 @@ class Backtrack {
             for (let i = 0; i < vertexesDomain.length; i++) {
                 vertex.variable.value = vertexesDomain[i];
                 if (graph.check(vertex)) {
-                    const domains = this.saveDomains(vertexNum);
-                    this.reduceDomains(vertexNum);
+                    // const domains = this.saveDomains(vertexNum);
+                    // this.reduceDomains(vertexNum);
                     const result = this.backtracking(vertexNum + 1);
-                    this.restoreDomains(domains, vertexNum);
+                    // this.restoreDomains(domains, vertexNum);
                     if (result) {
                         return result;
                     }
@@ -28,25 +28,25 @@ class Backtrack {
         }
     };
 
-    filterVertexDomain = (vertex) => vertex.variable.domain.filter(val => {
-        const valueBeforeCheck = vertex.variable.value;
-        vertex.variable.value = val;
-        const isSatisfiedConstraints = this.graph.check(vertex);
-        vertex.variable.value = valueBeforeCheck;
-        return isSatisfiedConstraints;
-    });
-
-    saveDomains = (vertexNum) => this.graph.listOfVertices
-        .slice(vertexNum + 1)
-        .map(vertex => [...vertex.variable.domain]);
-
-    reduceDomains = (vertexNum) => this.graph.listOfVertices
-        .slice(vertexNum + 1)
-        .forEach(v => v.variable.domain = this.filterVertexDomain(v));
-
-    restoreDomains = (domains, vertexNum) => this.graph.listOfVertices
-        .slice(vertexNum + 1)
-        .forEach((vertex, i) => vertex.variable.domain = domains[i]);
+//     filterVertexDomain = (vertex) => vertex.variable.domain.filter(val => {
+//         const valueBeforeCheck = vertex.variable.value;
+//         vertex.variable.value = val;
+//         const isSatisfiedConstraints = this.graph.check(vertex);
+//         vertex.variable.value = valueBeforeCheck;
+//         return isSatisfiedConstraints;
+//     });
+//
+//     saveDomains = (vertexNum) => this.graph.listOfVertices
+//         .slice(vertexNum + 1)
+//         .map(vertex => [...vertex.variable.domain]);
+//
+//     reduceDomains = (vertexNum) => this.graph.listOfVertices
+//         .slice(vertexNum + 1)
+//         .forEach(v => v.variable.domain = this.filterVertexDomain(v));
+//
+//     restoreDomains = (domains, vertexNum) => this.graph.listOfVertices
+//         .slice(vertexNum + 1)
+//         .forEach((vertex, i) => vertex.variable.domain = domains[i]);
 }
 
 export default Backtrack;

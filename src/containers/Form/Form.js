@@ -71,7 +71,7 @@ class Form extends Component {
     ) => {
         this.handleChangeValue({
             name,
-            value: checked,
+            value: checked.toString(),
             valid: true
         })
     };
